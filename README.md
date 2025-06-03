@@ -11,7 +11,7 @@ The code is useful for implementing school assignment mechanisms in empirical ed
 The function `student_DA()` runs the student-proposing version of the Deferred Acceptance algorithm. It simulates rounds of proposals where students apply to their most preferred program not yet rejected, and schools evaluate applicants based on priorities and lottery numbers until a stable matching is reached.
 
 The algorithm accounts for:
-- **Priorities** (e.g., based on siblings, catchment, etc.)
+- **Binary priorities** (e.g., based on siblings, catchment, etc.)
 - **Lottery tie-breaking**, either:
   - **STB**: same lottery number across all applications
   - **MTB**: distinct lottery number per student-program pair
@@ -27,11 +27,11 @@ All input vectors must be non-missing and of equal length. Each row in the datas
 |------------------|-------------|
 | `long_students`  | Student ID (numeric), repeated for each program applied to |
 | `long_schools`   | Program/School ID (numeric) |
-| `long_rank`      | Rank of the program in student’s preference list (lower = more preferred) |
+| `long_rank`      | Rank of the program in student’s preference list (lower = more preferred; 1 = most preferred) |
 | `long_priorities`| Indicator: 1 if student has priority at this program, 0 otherwise |
-| `long_lot_nums`  | Lottery number for tie-breaking. Can be the same across all rows for STB or differ by row for MTB |
+| `long_lot_nums`  | Lottery number for tie-breaking. Can be the same across all rows for STB or differ by row for MTB (lower numbers win) |
 | `long_capacities`| Capacity for each program (must be constant for a given school) |
-| `condition_mask` | A binary vector (1/0) indicating which rows should be included in the algorithm |
+| `condition_mask` | A binary vector (1/0) indicating which rows of the STATA dataset should be considered in the algorithm |
 | `outvarname`     | Name of the new variable to store results in the Stata dataset |
 
 ---
@@ -57,4 +57,4 @@ A new variable named by `outvarname` will be created in the Stata dataset, stori
 
 ```stata
 // Example usage inside Stata
-mata: student_DA(long_students, long_schools, long_rank, long_priorities, long_lot_nums, long_capacities, condition_mask, "assignment")
+mata student_DA(st_data(., "id"), st_data(., "prog_num"), st_data(., "rank"), st_data(., "prior"), st_data(., "lottery_STB"), st_data(., "school_cap"), st_data(., "mask"), "placement_alg")
