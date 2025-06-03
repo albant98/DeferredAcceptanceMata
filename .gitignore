@@ -1,0 +1,18 @@
+# Ignore compiled Mata object files
+*.mo
+
+# Ignore temporary or lock files
+*.log
+*.dta~
+*.tmp
+*.smcl
+
+# VSCode or editor configs
+.vscode/
+*.code-workspace
+
+# Mac system files
+.DS_Store
+
+# Jupyter or notebook outputs (in case you document experiments)
+.ipynb_checkpoints/
