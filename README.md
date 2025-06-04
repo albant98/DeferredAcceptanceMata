@@ -61,6 +61,7 @@ mata student_DA(st_data(., "id"), st_data(., "prog_num"), st_data(., "rank"), st
 
 ---
 
-## 📞 Contact
+## 📬 Contact
 
-If you need any help understanding or implementing the code, please use any of the contact links you can find on my webpage: [www.albertoantonello.com](www.albertoantonello.com).
+If you need any help understanding or implementing the code, please feel free to reach out via the contact links on my personal webpage:  
+👉 [www.albertoantonello.com](https://www.albertoantonello.com)
