@@ -58,6 +58,7 @@ A new variable named by `outvarname` will be created in the Stata dataset, stori
 ```stata
 // Example usage inside Stata
 mata student_DA(st_data(., "id"), st_data(., "prog_num"), st_data(., "rank"), st_data(., "prior"), st_data(., "lottery_STB"), st_data(., "school_cap"), st_data(., "mask"), "placement_alg")
+```
 
 ---
 
