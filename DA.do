@@ -78,12 +78,12 @@ void student_DA( // Initialize new function
 	real colvector selected_idx
 	selected_idx = selectindex(condition_mask :== 1) // Subset data according to the condition mask
     
-    long_students     = long_students[selected_idx]
-    long_schools      = long_schools[selected_idx]
-    long_rank         = long_rank[selected_idx]
-    long_priorities   = long_priorities[selected_idx]
-    long_lot_nums     = long_lot_nums[selected_idx]
-    long_capacities   = long_capacities[selected_idx]
+    	long_students     = long_students[selected_idx]
+    	long_schools      = long_schools[selected_idx]
+    	long_rank         = long_rank[selected_idx]
+    	long_priorities   = long_priorities[selected_idx]
+    	long_lot_nums     = long_lot_nums[selected_idx]
+    	long_capacities   = long_capacities[selected_idx]
 
 	real colvector unique_students
 	unique_students = uniqrows(long_students) // List of students
